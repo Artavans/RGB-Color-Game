@@ -1,0 +1,41 @@
+//Grid, containers:
+
+.container {
+	width: 40%;
+	margin: 0 auto;
+
+  @media (max-width: @screen--desctop-sm) {
+    width: 55%;
+  }
+
+  @media (max-width: @screen--tablet) {
+    width: 60%;
+  }
+
+  @media (max-width: @screen--mobile) {
+    width: 80%;
+  }
+ }
+
+
+//Type:
+
+.title--h1 {
+  margin: 0;
+  font-family: @font-family--base;
+  font-size: @font-size--h1;
+  line-height: @line-height--base;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: white;
+}
+
+.code {
+  font-family: @font-family--code;
+  font-size: @font-size--big;
+  line-height: @line-height--base;
+  letter-spacing: 1;
+  font-weight: 400; 
+  color: white;
+}

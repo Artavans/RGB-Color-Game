@@ -1,0 +1,23 @@
+.colors {
+ 
+  &__wrapper {
+  	width: 100%;
+  	display: flex;
+  	flex-direction: row;
+  	flex-wrap: wrap;
+  }
+
+	&__item {
+		width: 31%;
+		margin-bottom: 3.5%;
+		margin-right: 3.5%;
+		padding-bottom: 31%;
+		border-radius: 5px;
+		cursor: pointer;
+		transition: 0.5s;
+
+		&:nth-child(3n+3) {
+			margin-right: 0;
+		}
+	}
+}
