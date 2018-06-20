@@ -8,7 +8,7 @@ var scoreCounter = 0;
 var colors = doColors(6);
 var pickedColor;
 
-//Начать игру заново
+//Start new game
 function startNewGame() {
   scoreCounter = 0;
   scoreDisplay.textContent = 'Score: 0';
@@ -20,14 +20,14 @@ function startNewGame() {
   changePickedColor();
 }
 
-//Генерация случайного целого числа
+//Generate random Integer
 function randomInteger(min, max) {
   var rand = min - 0.5 + Math.random() * (max - min + 1)
   rand = Math.round(rand);
   return rand;
 }
 
-//Генерация случайного цвета в формате RGB
+//Generate random RGB color
 function randomColor() {
   var r = randomInteger(0, 255);
   var g = randomInteger(0, 255);
@@ -36,7 +36,7 @@ function randomColor() {
 
 }
 
-//Генерация массива цветов
+//Add random colors to array
 function doColors(num) {
   var arr = [];
   for (var i = 0; i < num; i++) {
@@ -46,18 +46,17 @@ function doColors(num) {
   return arr;
 }
 
-//Замена загаданного цвета
+//Add colors to the squares
+function addColorsToSquares() {
+  for (var i = 0; i < squares.length; i++) {
+    squares[i].style.backgroundColor = colors[i];
+  }
+}
+
+//Replace the hidden color
 function changePickedColor() {
   pickedColor = Math.floor(Math.random() * colors.length);
   colorDisplay.textContent = colors[pickedColor];  
-}
-
-//Назначение цветов на блоки
-function addColorsToSquares() {
-  for (var i = 0; i < squares.length; i++) {
-    squares[i].style.background = colors[i];
-    squares[i].style.transition = '1s';  
-  }
 }
 
 addColorsToSquares();
@@ -65,9 +64,10 @@ changePickedColor();
 
 for (var i = 0; i < squares.length; i++) {
   squares[i].addEventListener('click', function() {
-    if (this.style.background == colors[pickedColor]) {
 
-      pageHeader.style.background = colors[pickedColor];
+    if (this.style.backgroundColor == colors[pickedColor]) {
+      
+      pageHeader.style.backgroundColor = colors[pickedColor];
 
       scoreCounter++;
       scoreDisplay.textContent = 'Score: ' + scoreCounter;
